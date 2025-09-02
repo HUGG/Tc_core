@@ -42,6 +42,7 @@ jobs:
           elif [ "$RUNNER_OS" == "Linux" ]; then
             CMAKE_EXTRA=''
           fi
+          echo "CMAKE_EXTRA=$CMAKE_EXTRA" >> $GITHUB_ENV
         shell: bash
       - name: CMake configure
         run: >
