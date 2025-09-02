@@ -14,15 +14,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Build ketch_aft
         working-directory: ./src/ketch_aft
-        run: |
-          make && make install
+        run: make && make install
       - name: Build RDAAM_He
         working-directory: ./src/RDAAM_He
-        run: |
-          make && make install
+        run: make && make install
       - name: Rename bin directory
         working-directory: ./
-        run:
+        run: |
+          BUILDOS=$(echo "${{ matrix.os }}" | sed 's/-latest//')
           mv bin bin-${BUILDOS}
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
