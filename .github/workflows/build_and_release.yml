@@ -45,7 +45,7 @@ jobs:
       - name: Build
         run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
       - name: Install
-        run: cmake --install --config ${{ matrix.build_type }}
+        run: cmake --install
       - name: Show me some files
         run: ls -la build
       - name: Show me some dirs
