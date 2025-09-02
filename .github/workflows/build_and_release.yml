@@ -33,10 +33,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Show me some files
-        run: ls -la
-      - name: Show me some dirs
-        run: pwd
       - name: Set reusable strings
         # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
         id: strings
@@ -52,6 +48,10 @@ jobs:
           -S src
       - name: Build
         run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+      - name: Show me some files
+        run: ls -la build
+      - name: Show me some dirs
+        run: pwd
       - name: Rename bin directory
         working-directory: ./
         run: mv ${{ steps.strings.outputs.build-output-dir }}/bin bin-${{ matrix.os }}-${{ matrix.c_compiler }}
