@@ -7,25 +7,57 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      # Set fail-fast to false to ensure that feedback is delivered for all matrix combinations. Consider changing this to true when your workflow is stable.
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
+        build_type: [Release]
+        c_compiler: [gcc, clang, cl]
+        include:
+          - os: windows-latest
+            c_compiler: cl
+            cpp_compiler: cl
+          - os: ubuntu-latest
+            c_compiler: gcc
+            cpp_compiler: g++
+          - os: ubuntu-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+        exclude:
+          - os: windows-latest
+            c_compiler: gcc
+          - os: windows-latest
+            c_compiler: clang
+          - os: ubuntu-latest
+            c_compiler: cl
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Build ketch_aft
-        working-directory: ./src/ketch_aft
-        run: make && make install
-      - name: Build RDAAM_He
-        working-directory: ./src/RDAAM_He
-        run: make && make install
+      - name: Set reusable strings
+        # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
+        id: strings
+        shell: bash
+        run: |
+          echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+      - name: Configure CMake
+        working-directory: ./src/
+        run: >
+          cmake -B ${{ steps.strings.outputs.build-output-dir }}
+          -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
+          -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -S ${{ github.workspace }}
+      - name: Build
+        working-directory: ./src/
+        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
       - name: Rename bin directory
         working-directory: ./
-        run: mv bin bin-${{ matrix.os }}
+        run: mv bin bin-${{ matrix.os }}-${{ matrix.c_compiler }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: tc_core-${{ matrix.os }}
-          path: bin-${{ matrix.os }}
+          name: tc_core-${{ matrix.os }}-${{ matrix.c_compiler }}
+          path: bin-${{ matrix.os }}-${{ matrix.c_compiler }}
   release:
     needs: build
     runs-on: ubuntu-latest
