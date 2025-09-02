@@ -20,14 +20,12 @@ jobs:
         run: make && make install
       - name: Rename bin directory
         working-directory: ./
-        run: |
-          BUILDOS=$(echo "${{ matrix.os }}" | sed 's/-latest//')
-          mv bin bin-${BUILDOS}
+        run: mv bin bin-${{ matrix.os }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: tc_core-${{ matrix.os }}
-          path: bin-${BUILDOS}
+          path: bin-${{ matrix.os }}
   release:
     needs: build
     runs-on: ubuntu-latest
