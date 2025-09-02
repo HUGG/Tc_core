@@ -76,9 +76,9 @@ jobs:
         run: |
           ls -la
           pwd
-          ls -l tc_core-ubuntu-latest-clang/bin
-          ls -l tc_core-ubuntu-latest-gcc/bin
-          ls -l tc_core-windows-latest-gcc/bin
+          ls -l tc_core-ubuntu-latest-clang
+          ls -l tc_core-ubuntu-latest-gcc
+          ls -l tc_core-windows-latest-gcc
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
