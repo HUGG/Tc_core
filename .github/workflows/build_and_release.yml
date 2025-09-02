@@ -57,7 +57,7 @@ jobs:
       - name: CMake install
         run: |
           mkdir bin
-          cmake --install ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+          cmake --install ${{ steps.strings.outputs.build-output-dir }} --prefix bin --config ${{ matrix.build_type }}
       - name: Rename bin directory
         working-directory: ./
         run: mv bin bin-${{ matrix.os }}-${{ matrix.c_compiler }}
@@ -76,9 +76,9 @@ jobs:
         run: |
           ls -la
           pwd
-          ls -l tc_core-ubuntu-latest-clang
-          ls -l tc_core-ubuntu-latest-gcc
-          ls -l tc_core-windows-latest-gcc
+          ls -l tc_core-ubuntu-latest-clang/bin
+          ls -l tc_core-ubuntu-latest-gcc/bin
+          ls -l tc_core-windows-latest-gcc/bin
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
