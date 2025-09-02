@@ -57,7 +57,7 @@ jobs:
       - name: CMake install
         run: |
           mkdir bin
-          cmake --install ${{ steps.strings.outputs.build-output-dir }} --prefix bin --config ${{ matrix.build_type }}
+          cmake --install ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
       - name: Rename bin directory
         working-directory: ./
         run: mv bin bin-${{ matrix.os }}-${{ matrix.c_compiler }}
