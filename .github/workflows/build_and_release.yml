@@ -64,6 +64,9 @@ jobs:
         run: |
           mv bin/bin/ketch_aft bin/bin/ketch_aft-${{ matrix.os }}-${{ matrix.c_compiler }}
           mv bin/bin/RDAAM_He bin/bin/RDAAM_He-${{ matrix.os }}-${{ matrix.c_compiler }}
+      - name: Rename bin directory
+        working-directory: ./
+        run: |
           mv bin/bin bin-${{ matrix.os }}-${{ matrix.c_compiler }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
