@@ -1,0 +1,45 @@
+name: Make release using version tag
+on:
+  push:
+    tags:
+      - "v*"
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Build ketch_aft
+        working-directory: ./src/ketch_aft
+        run: |
+          make && make install
+      - name: Build RDAAM_He
+        working-directory: ./src/RDAAM_He
+        run: |
+          make && make install
+      - name: Rename bin directory
+        working-directory: ./
+        run:
+          mv bin bin-${BUILDOS}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tc_core-${{ matrix.os }}
+          path: bin-${BUILDOS}
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: bin-*/*
+          tag_name: ${{ github.ref_name }}
+          body: "Automated release of ${{ github.ref_name }}."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
