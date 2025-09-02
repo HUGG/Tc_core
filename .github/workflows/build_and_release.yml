@@ -52,12 +52,6 @@ jobs:
         run: |
           mkdir bin
           cmake --install ${{ steps.strings.outputs.build-output-dir }} --prefix bin --config ${{ matrix.build_type }}
-      - name: Rename executables
-        if: matrix.os == 'ubuntu-latest'
-        working-directory: ./
-        run: |
-          mv bin/bin/ketch_aft bin/bin/ketch_aft-${{ matrix.os }}-${{ matrix.c_compiler }}
-          mv bin/bin/RDAAM_He bin/bin/RDAAM_He-${{ matrix.os }}-${{ matrix.c_compiler }}
       - name: Rename bin directory
         working-directory: ./
         run: |
