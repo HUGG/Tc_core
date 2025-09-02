@@ -54,7 +54,7 @@ jobs:
         run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
       - name: Rename bin directory
         working-directory: ./
-        run: mv bin bin-${{ matrix.os }}-${{ matrix.c_compiler }}
+        run: mv ${{ steps.strings.outputs.build-output-dir }}/bin bin-${{ matrix.os }}-${{ matrix.c_compiler }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
