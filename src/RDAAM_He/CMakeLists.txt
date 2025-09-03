@@ -7,4 +7,4 @@ project(RDAAM_He)
 add_executable(RDAAM_He RDAAM.cpp RDAAM_He.cpp)
 
 # define link options
-target_link_options(RDAAM_He PRIVATE -static-libgcc -static-libstdc++)
+target_link_options(RDAAM_He PRIVATE -static-libstdc++)
