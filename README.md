@@ -29,9 +29,21 @@ The easiest way to get up and running in Windows is to download the two executab
 
 Once you have downloaded the executables, you need to put them in a suitable location for use. This could be a folder within your user space or somewhere else on your system. The important thing is that your operating system needs to be able to find the files to use Tcplotter or Tc1D. So, you can either install the files in a location where your computer already looks for executables or add the location where the files have been downloaded to the PATH where executables are found.
 
-If you would prefer to install the executables in a location where they can be found in the PATH already, it is suggested to copy them to `/usr/local/bin`. Note that you may need administrator rights to do this. You can check other possible locations for installation by typing `echo $PATH` in the terminal, which will list all directories in which executables can be found.
+If you would prefer to install the executables in a location where they can be found in the PATH already, it is suggested to copy them to `/usr/local/bin`. Note that you may need administrator rights to do this. You can check other possible locations for installation by typing
 
-If you would prefer to install them elsewhere and add them to your PATH, you can update the path in a terminal by typing `export PATH=$PATH:/path/to/executables`, where you would replace `/path/to/executables` with the actual filepath to them. If you want this to happen automatically, you should [add that export statement to your shell resource file](https://www.geeksforgeeks.org/linux-unix/how-to-set-path-permanantly-in-linux/).
+```bash
+echo $PATH
+```
+
+in the terminal, which will list all directories in which executables can be found.
+
+If you would prefer to install them elsewhere and add them to your PATH, you can update the path in a terminal by typing
+
+```bash
+export PATH=$PATH:/path/to/executables
+```
+
+where you would replace `/path/to/executables` with the actual filepath to them. If you want this to happen automatically, you should [add that export statement to your shell resource file](https://www.geeksforgeeks.org/linux-unix/how-to-set-path-permanantly-in-linux/).
 
 ### macOS :apple:
 
@@ -43,9 +55,21 @@ Unfortunately, the Tc_core executables must be compiled locally for macOS. You s
 
 Once you have downloaded the executables, you need to put them in a suitable location for use. This could be a folder within your user space or somewhere else on your system. The important thing is that your operating system needs to be able to find the files to use Tcplotter or Tc1D. So, you can either install the files in a location where your computer already looks for executables or add the location where the files have been downloaded to the PATH where executables are found.
 
-If you would prefer to install the executables in a location where they can be found in the PATH already, it is suggested to copy them to `/usr/local/bin`. Note that you may need administrator rights to do this. You can check other possible locations for installation by typing `echo $PATH` in the terminal, which will list all directories in which executables can be found.
+If you would prefer to install the executables in a location where they can be found in the PATH already, it is suggested to copy them to `/usr/local/bin`. Note that you may need administrator rights to do this. You can check other possible locations for installation by typing
 
-If you would prefer to install them elsewhere and add them to your PATH, you can update the path in a terminal by typing `export PATH=$PATH:/path/to/executables`, where you would replace `/path/to/executables` with the actual filepath to them. If you want this to happen automatically, you can do so similarly to Linux and [add that export statement to your shell resource file](https://www.geeksforgeeks.org/linux-unix/how-to-set-path-permanantly-in-linux/). Or if you prefer macOS-specific instructions, you can [find those here](https://techpp.com/2021/09/08/set-path-variable-in-macos-guide/).
+```bash
+echo $PATH
+```
+
+in the terminal, which will list all directories in which executables can be found.
+
+If you would prefer to install them elsewhere and add them to your PATH, you can update the path in a terminal by typing
+
+```bash
+export PATH=$PATH:/path/to/executables
+```
+
+where you would replace `/path/to/executables` with the actual filepath to them. If you want this to happen automatically, you can do so similarly to Linux and [add that export statement to your shell resource file](https://www.geeksforgeeks.org/linux-unix/how-to-set-path-permanantly-in-linux/). Or if you prefer macOS-specific instructions, you can [find those here](https://techpp.com/2021/09/08/set-path-variable-in-macos-guide/).
 
 ### Compiling the executables
 
