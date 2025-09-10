@@ -73,7 +73,32 @@ where you would replace `/path/to/executables` with the actual filepath to them.
 
 ### Compiling the executables
 
-...
+Compiling the executables for the Tc_core programs requires a few things are available on your computer. The requirements for each system vary slightly:
+
+- Windows: [CMake](https://cmake.org/download/), [MinGW](https://sourceforge.net/projects/mingw/)
+- Linux: [CMake](https://cmake.org/) (suggested to be installed with your package manager (e.g., `apt install cmake`)), GCC/G++ compilers (most likely already installed)
+- macOS: [CMake](https://cmake.org/) (suggested to be installed using [Homebrew](https://brew.sh/)), GCC/G++ compilers (suggested to be installed using [Homebrew](https://brew.sh/) (e.g., `brew install gcc`))
+
+With the necessary software installed, you can compile the Tc_core executables by
+
+1. Downloading the [latest release of the Tc_core source code](https://github.com/HUGG/Tc_core/releases/) and unpacking it
+2. Opening a Windows command prompt or terminal in Linux or macOS and changing to the directory where you unpacked the source code.
+3. Create a `build` directory (e.g., `mkdir build`)
+4. Run CMake configure
+    ```bash
+    cmake -B build -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Release -S src
+    ```
+    - **Note**: If you have installed the GCC compilers using Homebrew on macOS, the executable names you list above should be for the corresponding verison of the installed compilers. For example, `-DCMAKE_CXX_COMPILER=g++-15` and `-DCMAKE_C_COMPILER=gcc-15`.
+5. Run CMake build
+    ```bash
+    cmake --build build --config Release
+    ```
+6. Run CMake install
+    ```bash
+    cmake --install build --prefix . --config Release
+    ```
+
+The compiled executables will be installed in the `bin` directory and can be installed to the desired location using the [installation instructions above](#installation).
 
 ## Testing the installation
 
