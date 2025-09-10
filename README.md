@@ -7,7 +7,9 @@ You can find instructions for how to install these programs and/or compile them 
 
 ## Installation
 
-In order for both T<sub>c</sub>plotter and T<sub>c</sub>1D to work, they must be able to find the executables `RDAAM_He` (`RDAAM_He.exe` in Windows) and `ketch_aft` (`ketch_aft.exe` in Windows) in the PATH for executables on your system. Setting things up to work for different operating systems thus requires specific instructions for each operating system, which you can find below. Instructions for each operating system comprise two steps: (1) obtaining or building the executables, and (2) installing them.
+In order for both T<sub>c</sub>plotter and T<sub>c</sub>1D to work, they must be able to find the executables `RDAAM_He` (`RDAAM_He.exe` in Windows) and `ketch_aft` (`ketch_aft.exe` in Windows) in the PATH for executables on your system. Setting things up to work for different operating systems thus requires specific instructions for each operating system ([Windows](#windows), [Linux](#linux), [macOS](#macos)).
+
+Instructions for each operating system comprise two steps: (1) obtaining or building the executables and (2) installing them.
 
 ### Windows :window:
 
