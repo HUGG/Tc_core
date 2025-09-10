@@ -73,7 +73,7 @@ export PATH=$PATH:/path/to/executables
 
 where you would replace `/path/to/executables` with the actual filepath to them. If you want this to happen automatically, you can do so similarly to Linux and [add that export statement to your shell resource file](https://www.geeksforgeeks.org/linux-unix/how-to-set-path-permanantly-in-linux/). Or if you prefer macOS-specific instructions, you can [find those here](https://techpp.com/2021/09/08/set-path-variable-in-macos-guide/).
 
-### Compiling the executables :computer:
+### Compiling the executables :desktop_computer:
 
 Compiling the executables for the Tc_core programs requires a few things are available on your computer. The requirements for each system vary slightly:
 
