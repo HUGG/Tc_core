@@ -71,7 +71,7 @@ export PATH=$PATH:/path/to/executables
 
 where you would replace `/path/to/executables` with the actual filepath to them. If you want this to happen automatically, you can do so similarly to Linux and [add that export statement to your shell resource file](https://www.geeksforgeeks.org/linux-unix/how-to-set-path-permanantly-in-linux/). Or if you prefer macOS-specific instructions, you can [find those here](https://techpp.com/2021/09/08/set-path-variable-in-macos-guide/).
 
-### Compiling the executables
+### Compiling the executables :computer:
 
 Compiling the executables for the Tc_core programs requires a few things are available on your computer. The requirements for each system vary slightly:
 
@@ -100,7 +100,7 @@ With the necessary software installed, you can compile the Tc_core executables b
 
 The compiled executables will be installed in the `bin` directory and can be installed to the desired location using the [installation instructions above](#installation).
 
-## Testing the installation
+## Testing the installation :scientist:
 
 If everything is working OK you should be able to [open a command prompt in Windows](https://www.wikihow.com/Open-the-Command-Prompt-in-Windows) or a terminal in [Linux](https://www.geeksforgeeks.org/linux-unix/how-to-open-terminal-in-linux/) or [macOS](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) and type `RDAAM_He` or `ketch_aft` and press Enter. You should see the following:
 
