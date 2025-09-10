@@ -13,7 +13,7 @@ In order for both T<sub>c</sub>plotter and T<sub>c</sub>1D to work, they must be
 
 #### Obtaining the executables
 
-The easiest way to get up and running in Windows is to download the two executable files `RDAAM_He.exe` and `ketch_aft.exe` from the [latest code release](https://github.com/HUGG/Tc_core/releases/). If this doesn't work, you can consult the instructions below for how to compile the executables.
+The easiest way to get up and running in Windows is to download the two executable files `RDAAM_He.exe` and `ketch_aft.exe` from the [latest code release](https://github.com/HUGG/Tc_core/releases/). If this doesn't work, you can consult the instructions below for [how to compile the executables](#compiling-the-executables).
 
 #### Installing the executables
 
@@ -23,7 +23,7 @@ Once you have downloaded the executables, you can put them in a suitable locatio
 
 #### Obtaining the executables
 
-The easiest way to get up and running in Windows is to download the two executable files `RDAAM_He.exe` and `ketch_aft.exe` from the [latest code release](https://github.com/HUGG/Tc_core/releases/).
+The easiest way to get up and running in Windows is to download the two executable files `RDAAM_He` and `ketch_aft` from the [latest code release](https://github.com/HUGG/Tc_core/releases/).
 
 #### Installing the executables
 
